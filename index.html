@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yogesh Prajapati · Software Engineer</title>
+<meta name="description" content="Software engineer. Five years building billing, logistics and document systems for BNSF Railway and Airbus at Infosys, now building with agentic AI.">
+<meta name="theme-color" content="#1b1a19">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yogesh Prajapati · Software Engineer">
+<meta property="og:description" content="Software engineer. Five years building billing, logistics and document systems for BNSF Railway and Airbus at Infosys, now building with agentic AI.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1a19'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='ui-monospace,monospace' font-size='18' fill='%23f4f1eb'%3Ey%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: one narrow column, rows not cards; every item can reveal the reasoning behind it. Single dark look, warm grey ground from the reference site. */
+  :root {
+    --bg: #1b1a19;
+    --fg: #e8e5df;
+    --heading: #f4f1eb;
+    --muted: #aaa59e;
+    --secondary: #bdb8b0;
+    --faint: #7c7872;
+    --rule: #3b3936;
+    --surface: #242321;
+    --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font: 15px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  main { max-width: 620px; margin: 0 auto; padding-block: 72px 56px; display: grid; gap: 56px; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, .row:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; border-radius: 4px; }
+
+  /* Intro */
+  header { display: grid; gap: 16px; }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 0; color: var(--heading); }
+  h1 .glyph { color: var(--faint); font-family: var(--mono); font-weight: 400; font-size: 15px; }
+  .bio { max-width: 62ch; }
+  .bio p { margin: 0 0 10px; }
+  .bio p:last-child { margin: 0; }
+  .bio b { font-weight: 500; color: var(--heading); }
+
+  .thinking { font: 13px/1.6 var(--mono); color: var(--secondary); background: var(--surface); border-radius: 8px; padding: 10px 12px; display: grid; gap: 2px; min-height: 3.2em; }
+  .thinking .label { display: flex; gap: 8px; align-items: center; color: var(--faint); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; }
+  .thinking .dots { display: inline-flex; gap: 3px; }
+  .thinking .dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--fg); animation: pulse 1.2s infinite ease-in-out; }
+  .thinking .dots i:nth-child(2) { animation-delay: .15s; }
+  .thinking .dots i:nth-child(3) { animation-delay: .3s; }
+  .thinking.resolved .dots i { animation: none; opacity: .6; }
+  .thinking .line { min-height: 1.6em; }
+  .thinking .q { color: var(--heading); }
+  .thinking .a { color: var(--secondary); }
+  .caret { display: inline-block; width: 7px; height: 13px; background: var(--fg); vertical-align: -2px; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+  @keyframes pulse { 0%, 100% { opacity: .2; transform: translateY(0); } 50% { opacity: .9; transform: translateY(-2px); } }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muted); }
+  .links a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: color .15s, text-decoration-color .15s; }
+  .links a:hover { color: var(--heading); text-decoration-color: var(--heading); }
+  .links .mail { color: var(--secondary); user-select: all; }
+
+  /* Sections */
+  section { display: grid; border-top: 1px solid var(--rule); padding-top: 28px; }
+  main { gap: 40px; }
+  h2 { font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin: 0 0 14px; }
+
+  .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; padding: 10px 0; position: relative; }
+  .row + .row { border-top: 1px dashed var(--rule); }
+  .row .main { min-width: 0; display: flex; gap: 4px 8px; align-items: baseline; flex-wrap: wrap; }
+  .row .name { font-weight: 500; color: var(--heading); }
+  .row .desc { color: var(--muted); }
+  .row .meta { display: flex; gap: 12px; font-size: 13px; color: var(--faint); align-items: baseline; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .row .meta a { color: var(--muted); transition: color .15s; }
+  .row .meta a:hover { color: var(--heading); }
+
+  /* The reasoning trace */
+  .trace { grid-column: 1 / -1; font: 12.5px/1.6 var(--mono); color: var(--secondary); overflow: hidden; display: grid; grid-template-rows: 0fr; transition: grid-template-rows .22s ease, margin .22s ease; }
+  .trace > div { min-height: 0; display: grid; gap: 2px; }
+  .trace .sym { color: var(--faint); margin-right: 6px; }
+  .trace b { font-weight: 500; color: var(--heading); }
+  .row:hover .trace, .row:focus-within .trace, .row.open .trace { grid-template-rows: 1fr; margin-top: 6px; }
+  .row::before { content: ""; position: absolute; left: -14px; top: 19px; width: 5px; height: 5px; border-radius: 50%; background: var(--fg); opacity: 0; transform: scale(.4); transition: opacity .15s, transform .15s; }
+  .row:hover::before, .row:focus-within::before, .row.open::before { opacity: 1; transform: scale(1); }
+
+  .writing .row .name { font-weight: 400; }
+  .writing .row:hover .name { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--faint); }
+
+  footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; font: 12px/1.5 var(--mono); color: var(--faint); border-top: 1px solid var(--rule); padding-top: 18px; }
+
+  @media (hover: none) {
+    .trace { grid-template-rows: 1fr; margin-top: 6px; }
+  }
+  @media (max-width: 480px) {
+    main { padding-block: 40px; gap: 44px; }
+    .row { grid-template-columns: 1fr; }
+    .row .meta { margin-top: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <header>
+    <h1><span id="name" data-text="Yogesh Prajapati">Yogesh Prajapati</span> <span class="glyph">/ software engineer</span></h1>
+    <div class="bio">
+      <p>I make production systems faster and more reliable. For five years at <b>Infosys</b> I've worked with two clients, <b>BNSF Railway</b> and <b>Airbus</b>.</p>
+      <p>BNSF is the largest freight railroad in the US. There I've built <b>complex batch workflows</b>, <b>automated invoicing</b> and <b>live tracking of container storage facilities</b>. For Airbus, I built a <b>document approval system</b> where departments draft, review and sign off on aviation rules. I own features from design through release and production support, mostly in Java, Spring Boot and Kafka, with Angular on the front end. Before that, I interned at <b>Amazon</b> on logistics cost tracking.</p>
+      <p>I'm now learning agentic AI by building with it, and I'm open to software engineering roles.</p>
+    </div>
+
+    <div class="thinking" id="thinking" aria-live="off">
+      <span class="label"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>currently thinking</span>
+      <div class="line"><span class="q" id="q">what should I build next?</span></div>
+      <div class="line"><span class="a" id="a">→ AI products with real users. if that's your team, email me.</span><span class="caret" aria-hidden="true"></span></div>
+    </div>
+
+    <nav class="links">
+      <a href="https://www.linkedin.com/in/yogesh-prajapati-425297140/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://leetcode.com/u/ytprajapati058/" target="_blank" rel="noopener">LeetCode ↗</a>
+      <a href="https://github.com/yogesh259" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://x.com/Yogesh_058" target="_blank" rel="noopener">X ↗</a>
+      <a href="https://medium.com/@ytprajapati058" target="_blank" rel="noopener">Medium ↗</a>
+      <span class="mail">ytprajapati058@gmail.com</span>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">Sentinel RCA</span><span class="desc">Paste a stack trace. Agents find the fix, cite the guilty commit and raise a PR for you to approve</span></div>
+      <div class="meta"><a href="https://sentinel-rca.streamlit.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/Sentinel-RCA" target="_blank" rel="noopener">code ↗</a></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span>LangGraph agents split the work: one reads the code, one digs through git blame, a reviewer checks every citation, and a human approves before any PR</span>
+        <span><span class="sym">∴</span>solved <b>14 of 15</b> planted incidents, including a prompt injection hidden inside a stack trace</span>
+      </div></div>
+    </div>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">Passbook Insights</span><span class="desc">Drop in a bank statement, find out where the money actually went</span></div>
+      <div class="meta"><a href="https://passbook-insights.onrender.com/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/transaction-ingestion" target="_blank" rel="noopener">code ↗</a></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span>personal tool for my own bank statements: a Spring Boot service that analyses spending by merchant name</span>
+        <span><span class="sym">∴</span>keyword matching categorises merchants; a fallback strategy asks the LLM only when no rule matches</span>
+      </div></div>
+    </div>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">Agentic AI</span><span class="desc">Free course, from Python basics to multi-agent systems</span></div>
+      <div class="meta"><a href="https://agentic-ai-blog.vercel.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/AgenticAIBlog" target="_blank" rel="noopener">code ↗</a></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span><b>113+ lessons</b> in 19 modules: Pydantic structured output, LangGraph state and cycles, human-in-the-loop, adaptive RAG, production guardrails</span>      </div></div>
+    </div>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">T.R. Prajapati</span><span class="desc">Portfolio for a government contractor in Gujarat</span></div>
+      <div class="meta"><a href="https://trprajapati.vercel.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/Construction-Portfolio" target="_blank" rel="noopener">code ↗</a></div>
+      <div class="trace"><div><span><span class="sym">∴</span>photo-heavy, so a static build that stays quick on mobile data</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Work</h2>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">Infosys</span><span class="desc">Specialist Programmer · billing and logistics for BNSF Railway, document tools for Airbus</span></div>
+      <div class="meta"><span>2022 – now</span></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span>made a live container and station dashboard load in <b>under 200 ms, down from 4 s</b>, by calling services in parallel</span>
+        <span><span class="sym">∴</span>automated monthly invoicing, including disputed charges, holiday credits and prorations</span>
+        <span><span class="sym">∴</span>shipment pipelines for 40+ manufacturer formats: <b>10K+ records</b> inside a 2-minute window</span>
+        <span><span class="sym">∴</span>brought AI-assisted development to the team: Claude and Spec-Kit writing tests and release checks</span>
+        <span><span class="sym">∴</span>Airbus: built UI and backend so departments could co-edit approval rules without overwriting each other</span>
+      </div></div>
+    </div>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">Amazon</span><span class="desc">SDE Intern · tracking how shipping costs flow through logistics systems</span></div>
+      <div class="meta"><span>2021</span></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span>built a platform showing which events were processed, filtered or failed across services</span>
+        <span><span class="sym">∴</span>reorganised the stored data so investigations ran in <b>20 s instead of 78 s</b></span>
+        <span><span class="sym">∴</span>React screens for searching shipment history and exporting results</span>
+      </div></div>
+    </div>
+    <div class="row" tabindex="0">
+      <div class="main"><span class="name">DA-IICT</span><span class="desc">Research Intern · predicting computer system performance with ML</span></div>
+      <div class="meta"><span>2020</span></div>
+      <div class="trace"><div>
+        <span><span class="sym">∴</span>trained models on simulated hardware data to predict how a physical system would perform</span>
+        <span><span class="sym">∴</span>compared SVM, Random Forest, Gradient Boosting and Decision Trees on accuracy vs speed</span>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="writing">
+    <h2>Writing</h2>
+    <a class="row" href="https://medium.com/@ytprajapati058/spring-batch-tutorial-build-a-production-ready-batch-job-with-spring-boot-3-f6c6408ba34d" target="_blank" rel="noopener">
+      <div class="main"><span class="name">Spring Batch tutorial: a production-ready batch job with Spring Boot 3</span></div>
+      <div class="meta"><span>Medium ↗</span></div>
+    </a>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="row">
+      <div class="main"><a class="name" href="https://www.daiict.ac.in/" target="_blank" rel="noopener">DA-IICT ↗</a><span class="desc">B.Tech, Information &amp; Communication Technology</span></div>
+      <div class="meta"><span>CGPA 8.23 / 10</span><span>2017 – 2021</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gujarat, India · open to remote</span>
+    <span>© 2026</span>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Name resolves from noise, like a thought settling
+  const el = document.getElementById('name');
+  const target = el.dataset.text, chars = 'abcdefghijklmnopqrstuvwxyz/<>{}=+*';
+  if (!reduce) {
+    let frame = 0;
+    const tick = () => {
+      el.textContent = [...target].map((c, i) =>
+        c === ' ' || i < frame / 2 ? c : chars[Math.random() * chars.length | 0]).join('');
+      if (frame++ < target.length * 2) requestAnimationFrame(tick);
+      else el.textContent = target;
+    };
+    tick();
+  }
+
+  // A question, a pause, then the conclusion: the thinking made visible
+  const thoughts = [
+    ['what should I build next?', "AI products with real users. if that's your team, email me."],
+    ['who am I?', 'the unchanging awareness. सत् चित् आनन्द.'],
+    ['why is p99 ten times p50?', 'one slow call in the chain. fan out, add timeouts.'],
+    ['Nolan or Hera Pheri tonight?', 'Interstellar for the docking scene, Hera Pheri for Babu Bhaiya.'],
+    ['when should an agent say "I don\'t know"?', "when it can't cite the line."],
+    ['why do good products lose?', 'distribution beats features, most days.'],
+    ['does this screen need a spinner?', 'not if it answers in 200 ms.'],
+    ['what if the retry succeeds twice?', 'idempotency keys before features.'],
+    ['should this be an agent or a function?', 'a function, until it needs to decide.'],
+    ['coffee or chai?', 'chai. adrak wali, and another cup before deploy.'],
+  ];
+  const box = document.getElementById('thinking'), q = document.getElementById('q'), a = document.getElementById('a');
+  if (reduce) return;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const type = async (node, s, speed) => { for (let i = 1; i <= s.length; i++) { node.textContent = s.slice(0, i); await wait(speed); } };
+  const run = async () => {
+    let t = 0;
+    await wait(3200);
+    for (;;) {
+      t = (t + 1) % thoughts.length;
+      q.textContent = ''; a.textContent = '';
+      box.classList.remove('resolved');
+      await wait(300);
+      await type(q, thoughts[t][0], 32);
+      await wait(900);                        // the pause is the thinking
+      await type(a, '→ ' + thoughts[t][1], 22);
+      box.classList.add('resolved');
+      await wait(3200);
+    }
+  };
+  run();
+
+  // Tap toggles the trace where there's no hover
+  document.querySelectorAll('.row[tabindex]').forEach(r =>
+    r.addEventListener('click', e => { if (!e.target.closest('a')) r.classList.toggle('open'); }));
+})();
+</script>
+
+</body>
+</html>
