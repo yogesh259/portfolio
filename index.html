@@ -87,20 +87,26 @@
 
   /* The reasoning trace */
   .trace { grid-column: 1 / -1; font: 12.5px/1.6 var(--mono); color: var(--secondary); overflow: hidden; display: grid; grid-template-rows: 0fr; transition: grid-template-rows .22s ease, margin .22s ease; }
-  .trace > div { min-height: 0; display: grid; gap: 2px; }
-  .trace .sym { color: var(--faint); margin-right: 6px; }
+  .trace > div { min-height: 0; display: grid; gap: 4px; border-left: 1px solid var(--rule); padding-left: 12px; }
   .trace b { font-weight: 500; color: var(--heading); }
-  .row:hover .trace, .row:focus-within .trace, .row.open .trace { grid-template-rows: 1fr; margin-top: 6px; }
+  .row.open .trace, .row:focus-visible .trace { grid-template-rows: 1fr; margin-top: 8px; }
   .row::before { content: ""; position: absolute; left: -14px; top: 19px; width: 5px; height: 5px; border-radius: 50%; background: var(--fg); opacity: 0; transform: scale(.4); transition: opacity .15s, transform .15s; }
-  .row:hover::before, .row:focus-within::before, .row.open::before { opacity: 1; transform: scale(1); }
+  .row.open::before, .row:focus-visible::before { opacity: 1; transform: scale(1); }
+  @media (hover: hover) {
+    .row:hover .trace, .row:focus-within .trace { grid-template-rows: 1fr; margin-top: 8px; }
+    .row:hover::before, .row:focus-within::before { opacity: 1; transform: scale(1); }
+  }
 
   .writing .row .name { font-weight: 400; }
   .writing .row:hover .name { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--faint); }
 
   footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; font: 12px/1.5 var(--mono); color: var(--faint); border-top: 1px solid var(--rule); padding-top: 18px; }
 
+  /* Touch screens: details stay folded; a quiet + on each row opens them */
   @media (hover: none) {
-    .trace { grid-template-rows: 1fr; margin-top: 6px; }
+    .row[tabindex] { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .row[tabindex] .meta::after { content: "+"; color: var(--faint); font: 15px/1 var(--mono); display: inline-block; transition: transform .2s ease; }
+    .row[tabindex].open .meta::after { transform: rotate(45deg); }
   }
   @media (max-width: 480px) {
     main { padding-block: 40px; gap: 44px; }
@@ -145,28 +151,28 @@
       <div class="main"><span class="name">Sentinel RCA</span><span class="desc">Paste a stack trace. Agents find the fix, cite the guilty commit and raise a PR for you to approve</span></div>
       <div class="meta"><a href="https://sentinel-rca.streamlit.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/Sentinel-RCA" target="_blank" rel="noopener">code ↗</a></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span>LangGraph agents split the work: one reads the code, one digs through git blame, a reviewer checks every citation, and a human approves before any PR</span>
-        <span><span class="sym">∴</span>solved <b>14 of 15</b> planted incidents, including a prompt injection hidden inside a stack trace</span>
+        <span>LangGraph agents split the work: one reads the code, one digs through git blame, a reviewer checks every citation, and a human approves before any PR</span>
+        <span>solved <b>14 of 15</b> planted incidents, including a prompt injection hidden inside a stack trace</span>
       </div></div>
     </div>
     <div class="row" tabindex="0">
       <div class="main"><span class="name">Passbook Insights</span><span class="desc">Drop in a bank statement, find out where the money actually went</span></div>
       <div class="meta"><a href="https://passbook-insights.onrender.com/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/transaction-ingestion" target="_blank" rel="noopener">code ↗</a></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span>personal tool for my own bank statements: a Spring Boot service that analyses spending by merchant name</span>
-        <span><span class="sym">∴</span>keyword matching categorises merchants; a fallback strategy asks the LLM only when no rule matches</span>
+        <span>personal tool for my own bank statements: a Spring Boot service that analyses spending by merchant name</span>
+        <span>keyword matching categorises merchants; a fallback strategy asks the LLM only when no rule matches</span>
       </div></div>
     </div>
     <div class="row" tabindex="0">
       <div class="main"><span class="name">Agentic AI</span><span class="desc">Free course, from Python basics to multi-agent systems</span></div>
       <div class="meta"><a href="https://agentic-ai-blog.vercel.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/AgenticAIBlog" target="_blank" rel="noopener">code ↗</a></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span><b>113+ lessons</b> in 19 modules: Pydantic structured output, LangGraph state and cycles, human-in-the-loop, adaptive RAG, production guardrails</span>      </div></div>
+        <span><b>113+ lessons</b> in 19 modules: Pydantic structured output, LangGraph state and cycles, human-in-the-loop, adaptive RAG, production guardrails</span>      </div></div>
     </div>
     <div class="row" tabindex="0">
       <div class="main"><span class="name">T.R. Prajapati</span><span class="desc">Portfolio for a government contractor in Gujarat</span></div>
       <div class="meta"><a href="https://trprajapati.vercel.app/" target="_blank" rel="noopener">live ↗</a><a href="https://github.com/yogesh259/Construction-Portfolio" target="_blank" rel="noopener">code ↗</a></div>
-      <div class="trace"><div><span><span class="sym">∴</span>photo-heavy, so a static build that stays quick on mobile data</span></div></div>
+      <div class="trace"><div><span>photo-heavy, so a static build that stays quick on mobile data</span></div></div>
     </div>
   </section>
 
@@ -176,28 +182,28 @@
       <div class="main"><span class="name">Infosys</span><span class="desc">Specialist Programmer · billing and logistics for BNSF Railway, document tools for Airbus</span></div>
       <div class="meta"><span>2022 – now</span></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span>made a live container and station dashboard load in <b>under 200 ms, down from 4 s</b>, by calling services in parallel</span>
-        <span><span class="sym">∴</span>automated monthly invoicing, including disputed charges, holiday credits and prorations</span>
-        <span><span class="sym">∴</span>shipment pipelines for 40+ manufacturer formats: <b>10K+ records</b> inside a 2-minute window</span>
-        <span><span class="sym">∴</span>brought AI-assisted development to the team: Claude and Spec-Kit writing tests and release checks</span>
-        <span><span class="sym">∴</span>Airbus: built UI and backend so departments could co-edit approval rules without overwriting each other</span>
+        <span>made a live container and station dashboard load in <b>under 200 ms, down from 4 s</b>, by calling services in parallel</span>
+        <span>automated monthly invoicing, including disputed charges, holiday credits and prorations</span>
+        <span>shipment pipelines for 40+ manufacturer formats: <b>10K+ records</b> inside a 2-minute window</span>
+        <span>brought AI-assisted development to the team: Claude and Spec-Kit writing tests and release checks</span>
+        <span>Airbus: built UI and backend so departments could co-edit approval rules without overwriting each other</span>
       </div></div>
     </div>
     <div class="row" tabindex="0">
       <div class="main"><span class="name">Amazon</span><span class="desc">SDE Intern · tracking how shipping costs flow through logistics systems</span></div>
       <div class="meta"><span>2021</span></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span>built a platform showing which events were processed, filtered or failed across services</span>
-        <span><span class="sym">∴</span>reorganised the stored data so investigations ran in <b>20 s instead of 78 s</b></span>
-        <span><span class="sym">∴</span>React screens for searching shipment history and exporting results</span>
+        <span>built a platform showing which events were processed, filtered or failed across services</span>
+        <span>reorganised the stored data so investigations ran in <b>20 s instead of 78 s</b></span>
+        <span>React screens for searching shipment history and exporting results</span>
       </div></div>
     </div>
     <div class="row" tabindex="0">
       <div class="main"><span class="name">DA-IICT</span><span class="desc">Research Intern · predicting computer system performance with ML</span></div>
       <div class="meta"><span>2020</span></div>
       <div class="trace"><div>
-        <span><span class="sym">∴</span>trained models on simulated hardware data to predict how a physical system would perform</span>
-        <span><span class="sym">∴</span>compared SVM, Random Forest, Gradient Boosting and Decision Trees on accuracy vs speed</span>
+        <span>trained models on simulated hardware data to predict how a physical system would perform</span>
+        <span>compared SVM, Random Forest, Gradient Boosting and Decision Trees on accuracy vs speed</span>
       </div></div>
     </div>
   </section>
