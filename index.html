@@ -11,10 +11,12 @@
 <meta property="og:description" content="Software engineer. Five years building billing, logistics and document systems for BNSF Railway and Airbus at Infosys, now building with agentic AI.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b1a19'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='ui-monospace,monospace' font-size='18' fill='%23f4f1eb'%3Ey%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-mono.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Fonts are served from this site and preloaded. "optional" means the browser never swaps fonts after the first paint, so text doesn't jump. */
+  @font-face { font-family: "Geist"; src: url("fonts/geist.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: optional; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/geist-mono.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: optional; }
   /* Layout: one narrow column, rows not cards; every item can reveal the reasoning behind it. Single dark look, warm grey ground from the reference site. */
   :root {
     --bg: #1b1a19;
@@ -46,6 +48,10 @@
   /* Intro */
   header { display: grid; gap: 16px; }
   h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 0; color: var(--heading); }
+  /* The invisible copy of the name holds the width, so the scramble can't push the text beside it */
+  .name-box { position: relative; display: inline-block; white-space: nowrap; }
+  .name-ghost { visibility: hidden; }
+  #name { position: absolute; left: 0; top: 0; white-space: nowrap; }
   h1 .glyph { color: var(--faint); font-family: var(--mono); font-weight: 400; font-size: 15px; }
   .bio { max-width: 62ch; }
   .bio p { margin: 0 0 10px; }
@@ -122,7 +128,7 @@
 
 <main>
   <header>
-    <h1><span id="name" data-text="Yogesh Prajapati">Yogesh Prajapati</span> <span class="glyph">/ software engineer</span></h1>
+    <h1><span class="name-box"><span class="name-ghost">Yogesh Prajapati</span><span id="name" data-text="Yogesh Prajapati">Yogesh Prajapati</span></span> <span class="glyph">/ software engineer</span></h1>
     <div class="bio">
       <p>I make production systems faster and more reliable. For five years at <b>Infosys</b> I've worked with two clients, <b>BNSF Railway</b> and <b>Airbus</b>.</p>
       <p>BNSF is the largest freight railroad in the US. There I've built <b>complex batch workflows</b>, <b>automated invoicing</b> and <b>live tracking of container storage facilities</b>. For Airbus, I built a <b>document approval system</b> where departments draft, review and sign off on aviation rules. I own features from design through release and production support, mostly in Java, Spring Boot and Kafka, with Angular on the front end. Before that, I interned at <b>Amazon</b> on logistics cost tracking.</p>
